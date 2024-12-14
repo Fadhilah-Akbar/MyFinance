@@ -1,0 +1,52 @@
+# Blokir semua akses default
+Order Deny,Allow
+Deny from all
+
+# Izinkan akses ke register.php hanya untuk metode POST
+<Files "logout.php">
+    Order Allow,Deny
+    Allow from all
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} !GET
+    RewriteRule ^ - [F]
+</Files>
+
+<Files "dashboard.php">
+    Order Allow,Deny
+    Allow from all
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} !GET
+    RewriteRule ^ - [F]
+</Files>
+
+<Files "fetch*.php">
+    Order Allow,Deny
+    Allow from all
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} !GET
+    RewriteRule ^ - [F]
+</Files>
+
+<Files "add*.php">
+    Order Allow,Deny
+    Allow from all
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteRule ^ - [F]
+</Files>
+
+<Files "edit*.php">
+    Order Allow,Deny
+    Allow from all
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteRule ^ - [F]
+</Files>
+
+<Files "delete*.php">
+    Order Allow,Deny
+    Allow from all
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} !GET
+    RewriteRule ^ - [F]
+</Files>

@@ -1,0 +1,20 @@
+# Blokir semua akses default
+Order Deny,Allow
+Deny from all
+
+# Izinkan akses ke register.php hanya untuk metode POST
+<Files "register.php">
+    Order Allow,Deny
+    Allow from all
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteRule ^ - [F]
+</Files>
+
+<Files "login.php">
+    Order Allow,Deny
+    Allow from all
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteRule ^ - [F]
+</Files>
