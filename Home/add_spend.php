@@ -50,7 +50,7 @@ include 'sidebar.php';
                 <label for="kategoriSelect">Category</label>
               </div>
               <input type="hidden" name="user_id" value="<?= $_SESSION['user_id']; ?>">
-              <input type="hidden" name="jenis" value="income">
+              <input type="hidden" name="jenis" value="spend">
               <button type="submit" class="btn btn-primary">Save</button>
             </form>
           </div>

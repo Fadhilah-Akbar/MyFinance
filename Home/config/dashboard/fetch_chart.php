@@ -17,7 +17,6 @@ if (isset($_SESSION['user_id'])) {
 
     // Menyesuaikan query SQL berdasarkan filter
     if ($filter === 'yearly') {
-        // Query for yearly data
         $sql = "SELECT YEAR(date) AS year, 
                        SUM(CASE WHEN jenis = 'income' THEN nominal ELSE 0 END) AS income,
                        SUM(CASE WHEN jenis = 'spend' THEN nominal ELSE 0 END) AS expense
@@ -26,7 +25,6 @@ if (isset($_SESSION['user_id'])) {
                 GROUP BY YEAR(date)
                 ORDER BY YEAR(date)";
     }elseif ($filter === 'monthly') {
-        // Query for monthly data (1 year range)
         $sql = "SELECT DATE_FORMAT(date, '%b-%Y') AS month, 
                        SUM(CASE WHEN jenis = 'income' THEN nominal ELSE 0 END) AS income,
                        SUM(CASE WHEN jenis = 'spend' THEN nominal ELSE 0 END) AS expense
@@ -35,12 +33,11 @@ if (isset($_SESSION['user_id'])) {
                 GROUP BY YEAR(date), MONTH(date)
                 ORDER BY YEAR(date), MONTH(date)";
     }else {
-        // Query for daily data (1 month range)
         $sql = "SELECT DATE_FORMAT(date, '%d-%b') AS day, 
                        SUM(CASE WHEN jenis = 'income' THEN nominal ELSE 0 END) AS income,
                        SUM(CASE WHEN jenis = 'spend' THEN nominal ELSE 0 END) AS expense
                 FROM cash_flow 
-                WHERE user_id = ? AND date >= CURDATE() - INTERVAL 1 MONTH
+                WHERE user_id = ? AND MONTH(date) = MONTH(CURDATE())
                 GROUP BY DAY(date)
                 ORDER BY DAY(date)";
     }

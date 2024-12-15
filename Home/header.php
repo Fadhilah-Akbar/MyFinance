@@ -7,7 +7,6 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: ../index.php");
     exit();
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +25,10 @@ if (!isset($_SESSION['user_id'])) {
   <!-- DataTables CSS -->
   <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css" />
 
-  <!-- chart -->
+  <!-- DataTables Buttons CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.0/css/buttons.dataTables.css">
+
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <!-- jQuery Library -->
@@ -34,6 +36,20 @@ if (!isset($_SESSION['user_id'])) {
 
   <!-- DataTables JS -->
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+
+  <!-- DataTables Buttons JS -->
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/3.2.0/js/dataTables.buttons.min.js"></script>
+
+  <!-- PDFMake (Dependency for exporting to PDF) -->
+  <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+
+  <!-- PDFMake Table Export Plugin -->
+  <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+
+  <!-- DataTables Buttons PDF Export Extension -->
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
 
   <style>

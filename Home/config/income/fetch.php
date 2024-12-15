@@ -11,7 +11,8 @@ if (isset($_SESSION['user_id'])) {
     $sql = "SELECT cash_flow.id id, cash_flow.judul judul, cash_flow.nominal nominal, kategori.nama_kategori nama, cash_flow.date tanggal
             FROM cash_flow 
             JOIN kategori ON cash_flow.kategori_id = kategori.id 
-            WHERE cash_flow.user_id = ? and cash_flow.jenis = 'income'";
+            WHERE cash_flow.user_id = ? and cash_flow.jenis = 'income'
+            ORDER BY date desc";
 
     // Persiapkan statement
     $stmt = $conn->prepare($sql);
