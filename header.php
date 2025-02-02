@@ -66,6 +66,6 @@ if (isset($_SESSION['user_id'])) {
         alertBox.classList.add('fade');
         alertBox.classList.remove('show'); // Hapus kelas 'show' agar transisi penutupan aktif
       }
-    }, 3000);
+    }, 5000);
   });
 </script>

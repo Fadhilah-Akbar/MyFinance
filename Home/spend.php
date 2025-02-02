@@ -6,7 +6,7 @@ include 'sidebar.php';
 
 <!-- Main Content -->
 <div id="content">
-<?php include 'topbar.php' ?>
+  <?php include 'topbar.php' ?>
 
   <!-- Dashboard Content -->
   <div class="container mt-4">

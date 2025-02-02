@@ -28,6 +28,9 @@ if (!isset($_SESSION['user_id'])) {
   <!-- DataTables Buttons CSS -->
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.0/css/buttons.dataTables.css">
 
+  <!-- Litepicker Date CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css">
+
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -51,6 +54,9 @@ if (!isset($_SESSION['user_id'])) {
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
+
+  <!-- LitePicker Date -->
+  <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
 
   <style>
     .alert-position {
@@ -89,6 +95,9 @@ if (!isset($_SESSION['user_id'])) {
     .hamburger-btn {
       font-size: 1.5rem;
       cursor: pointer;
+    }
+    .dt-length>label{
+      display: none;
     }
   </style>
 </head>

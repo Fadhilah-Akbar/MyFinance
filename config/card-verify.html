@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifikasi Akun</title>
+    <style>
+        img{
+            border-radius: 10px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        .card {
+            background-color: #ffffff;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff !important;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            font-size: 12px;
+            color: #777;
+            margin-top: 20px;
+        }
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <img src="https://myfinance-orca.ct.ws/home/asset/img/favicon/favicon-96x96.png" alt="Logo Cashflow" style="display: block; width: 80px; height: auto; margin: 0 auto;">
+        <h2>Verifikasi Akun</h2>
+        <p>Halo <strong>{fullname}</strong>,</p>
+        <p>Terima kasih telah mendaftar di <strong>Cashflow App</strong>. Silakan klik tombol di bawah untuk memverifikasi akun Anda.</p>
+        <a href="{verification_link}" class="button">Verifikasi Akun</a>
+        <p class="footer">
+            Jika Anda tidak melakukan registrasi di Cashflow App, abaikan pesan ini.<br>
+            <a href="https://MyFinance-orca.ct.ws">MyFinance-orca.ct.ws</a>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
