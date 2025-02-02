@@ -11,6 +11,22 @@ Deny from all
     RewriteRule ^ - [F]
 </Files>
 
+<Files "verify.php">
+    Order Allow,Deny
+    Allow from all
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} !GET
+    RewriteRule ^ - [F]
+</Files>
+
+<Files "mailer.php">
+    Order Allow,Deny
+    Allow from all
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} !GET
+    RewriteRule ^ - [F]
+</Files>
+
 <Files "login.php">
     Order Allow,Deny
     Allow from all

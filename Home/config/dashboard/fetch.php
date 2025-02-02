@@ -1,40 +1,47 @@
 <?php
-// Mulai session terlebih dahulu untuk menggunakan $_SESSION
 session_start();
 
-// Include the database connection file
 include '../database.php';
 
-// Periksa apakah user_id ada di dalam session
 if (isset($_SESSION['user_id'])) {
-    // Query to fetch data from the cash_flow table with join to kategori table
-    $sql = "SELECT cash_flow.id id, cash_flow.jenis type, cash_flow.judul judul, cash_flow.nominal nominal, kategori.nama_kategori nama, cash_flow.date tanggal
-            FROM cash_flow 
-            JOIN kategori ON cash_flow.kategori_id = kategori.id 
-            WHERE cash_flow.user_id = ?";
 
-    // Persiapkan statement
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $_SESSION['user_id']); // Bind user_id from session
+    $filter = isset($_GET['filter']) ? $_GET['filter'] : 'monthly';
+    $start = isset($_GET['start']) ? $_GET['start'] : '';
+    $end = isset($_GET['end']) ? $_GET['end'] : '';
+
+    $sql = "SELECT cf.jenis type, cf.judul detail, cf.nominal nominal, kategori.nama_kategori category, DATE_FORMAT(cf.date, '%d-%b-%Y') date
+                FROM cash_flow cf 
+                LEFT JOIN kategori ON cf.kategori_id = kategori.id 
+                WHERE cf.user_id = ?";
+
+    if ($filter === 'yearly') {
+        $sql = $sql . " AND date >= CURDATE() - INTERVAL 1 YEAR";
+    }else{
+        $sql = $sql . " AND date >= CURDATE() - INTERVAL 1 MONTH";
+    }
+
+    if(!empty($start) && !empty($end)){
+        $sql = $sql . " AND cf.date BETWEEN ? AND ? ORDER BY cf.date desc";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iss", $_SESSION['user_id'],$start,$end); 
+    }else{
+        $sql = $sql . " ORDER BY cf.date desc";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $_SESSION['user_id']); 
+    }
     
-    // Eksekusi dan ambil hasilnya
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Initialize an empty array to store the data
     $cashFlow = [];
 
     if ($result->num_rows > 0) {
-        // Fetch each row as an associative array and push it to the cashFlow array
         while ($row = $result->fetch_assoc()) {
             $cashFlow[] = $row;
         }
     }
 
-    // Return the data as JSON to be used in JavaScript
     echo json_encode($cashFlow);
-    
-    // Tutup statement
     $stmt->close();
 } else {
     echo json_encode([

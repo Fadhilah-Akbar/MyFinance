@@ -18,11 +18,7 @@ if ($id <= 0) {
 
 <!-- Main Content -->
 <div id="content">
-  <!-- Navbar -->
-  <nav class="navbar navbar-light bg-light px-3">
-    <span class="hamburger-btn" onclick="toggleSidebar()">&#9776;</span>
-    <span class="ms-auto">Nama Akun: <strong><?= $_SESSION['fullname']; ?></strong></span>
-  </nav>
+  <?php include 'topbar.php' ?>
 
   <!-- Dashboard Content -->
   <div class="container mt-4">

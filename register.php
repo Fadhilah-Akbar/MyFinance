@@ -6,15 +6,15 @@
       <div class="mb-3">
         <label for="name" class="form-label">Nama Lengkap</label>
         <input type="text" class="form-control" id="name" name="name" required minlength="3" 
-               oninvalid="this.setCustomValidity('Nama lengkap minimal 3 karakter.')" 
+               oninvalid="this.setCustomValidity('Nama lengkap minimal 3 huruf.')" 
                oninput="this.setCustomValidity('')">
       </div>
       <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" name="username" required 
-               pattern="^(?=.*[0-9])[a-zA-Z0-9]{5,}$" 
-               oninvalid="this.setCustomValidity('Username harus minimal 5 karakter dan mengandung angka.')" 
-               oninput="this.setCustomValidity('')">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" class="form-control" id="email" name="email" required 
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+                oninvalid="this.setCustomValidity('email tidak valid.')" 
+                oninput="this.setCustomValidity('')">
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>

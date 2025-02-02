@@ -13,14 +13,19 @@
       <li class="nav-item">
         <a class="nav-link" href="spend.php">Spend</a>
       </li>
-    <?php if($_SESSION['role_id'] == 1):?>
+    <?php if($_SESSION['role_id'] == 1 || $_SESSION['role_id'] == 2):?>
       <li class="nav-item">
         <a class="nav-link" href="role.php">Master Role</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="kategori.php">Master Category</a>
       </li>
-    <?php endif; ?>
+      <?php endif; ?>
+      <?php if($_SESSION['role_id'] == 1):?>
+      <li class="nav-item">
+        <a class="nav-link" href="user.php">Account Management</a>
+      </li>
+      <?php endif; ?>
       <li class="nav-item">
         <a class="nav-link" href="config/logout.php">Logout</a>
       </li>
